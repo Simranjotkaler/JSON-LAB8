@@ -1,0 +1,37 @@
+*adding animations*/
+main{
+	animation-name: example;
+  	animation-duration: 10s;
+  	animation-iteration-count: infinite;
+}
+@keyframes example {
+  0%   {background-color:#F4B198 ;}
+  25%  {background-color:#F4D998 ;}
+  50%  {background-color:#DFF498 ;}
+  75%  {background-color:#98F4E5 ;}
+  100% {background-color:#F498C2 ; }
+}
+/*image styling to make it more attractive*/
+img{
+	height: 250px;
+	border: 2px solid #C12A2A ;
+	border-radius: 10px;
+}
+/*heading styling*/
+h1{
+	font-family: 'Lobster Two', cursive;
+	text-align: center;
+}
+
+h2{
+	font-family: 'Comic Neue', cursive;
+	font-weight: 700;
+}
+
+/*Just for fun adding a giff image and styling it accordingly*/
+section{
+	padding-top: 50px;
+	background-image: url('https://media0.giphy.com/media/iprgAaLvunMpG/source.gif');
+	background-position: right;
+	background-repeat: repeat-y;
+}
