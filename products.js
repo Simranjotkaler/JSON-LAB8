@@ -46,6 +46,40 @@ function weirdDeals(jsonObj) {
         section.appendChild(article);
     }
 }
+function seeweather( cityid ){
+  var key = '2dbf8e0d2e4bca96dc240feb4826f1c7'; //i got this key by registering to the open weather map .org website .
+  fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityid+ '&appid=' + key)
+  .then(function(resp) { return resp.json()})
+  .then(function(data){
+    letsseetheweather(data);
+  })
+  .catch(function(){    //to catch the error
+
+  });
+}
+
+window.onload = function(){
+  seeweather( 5894171 );  //city id of barrie taken from bbc.com
+}
+
+function letsseetheweather( c ){
+  var celcius = Math.round(parseFloat(c.main.temp)-273.15);     //converts the temp to celcius
+  var fahrenheit = Math.round(((parseFloat(c.main.temp)-273.15)*1.8)+32);   //converts to fahrenheit
+
+  document.getElementById('description').innerHTML = c.weather[0].description;    //getting the description
+  document.getElementById('temp').innerHTML = celcius + '&deg;' ;    //getting the temperature
+  document.getElementById('location').innerHTML = c.name;     //getting the location
+
+
+  if( description.indexOf('rain') > 0 ) {
+  document.className = 'rainy';    //display color for rain
+} else if( description.indexOf('cloud') > 0 ) {
+  document.className = 'cloudy';    //display color for cloudy
+} else if( description.indexOf('sunny') > 0 ) {
+  document.className = 'sunny';     //display color for sunny
+  }
+}
+
 
 //invoking the function
 useAsynchronous('https://simranjotkaler.github.io/JSON-LAB8/products.json');
